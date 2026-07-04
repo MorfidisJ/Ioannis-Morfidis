@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #050505;
+    color: #9AA0A6;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  body {
+    @apply bg-void text-fog min-h-screen overflow-x-hidden selection:bg-signal-yellow/30 selection:text-white;
+  }
+
+  /* Non-negotiable focus state visibility */
+  *:focus-visible {
+    @apply outline outline-2 outline-signal-yellow outline-offset-4 !important;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-glass backdrop-blur-xl border border-glass-border rounded-2xl shadow-glass;
+  }
+  
+  .glass-chip {
+    @apply bg-white/[0.04] backdrop-blur-md border border-white/[0.08] rounded-xl px-4 py-2.5 text-sm font-mono transition-all duration-300 ease-out hover:bg-white/[0.08] hover:border-white/[0.18];
+  }
+
+  .terminal-text {
+    @apply text-signal-green font-mono drop-shadow-signal;
+  }
+  
+  .terminal-input {
+    @apply bg-black/40 border border-white/10 rounded-lg px-4 py-3 font-mono text-signal-green focus:border-signal-yellow focus:outline-none transition-colors w-full placeholder:text-white/20;
+  }
+}
+
+/* Custom scrollbar for cyberpunk terminal feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(246, 230, 66, 0.6);
+}
+
+/* Blinking cursor animation for CLI caret */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Liquid background slow drift animation */
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(5%, 10%) scale(1.1); }
+  66% { transform: translate(-5%, 5%) scale(0.95); }
+}
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-10%, -5%) scale(1.05); }
+  66% { transform: translate(8%, -8%) scale(0.9); }
+}
+.animate-float-1 {
+  animation: float1 25s ease-in-out infinite;
+}
+.animate-float-2 {
+  animation: float2 30s ease-in-out infinite reverse;
+}
