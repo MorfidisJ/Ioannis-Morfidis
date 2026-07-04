@@ -18,7 +18,8 @@ export default function Navbar({ activeSection, onNavigate }) {
     { id: 'hero', label: '01 // HERO', href: '#hero' },
     { id: 'archive', label: '02 // ARCHIVE', href: '#archive' },
     { id: 'arsenal', label: '03 // ARSENAL', href: '#arsenal' },
-    { id: 'terminal', label: '04 // TERMINAL', href: '#terminal' }
+    { id: 'resume', label: '04 // DOSSIER', href: '#resume' },
+    { id: 'terminal', label: '05 // TERMINAL', href: '#terminal' }
   ];
 
   const handleLinkClick = (e, href, id) => {

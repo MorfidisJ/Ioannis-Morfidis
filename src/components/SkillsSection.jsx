@@ -14,7 +14,7 @@ export default function SkillsSection({ activeFilter, onSelectFilter }) {
   return (
     <section id="arsenal" className="py-24 relative min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Title */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-white/10 pb-6 gap-6">
           <div>
@@ -54,7 +54,7 @@ export default function SkillsSection({ activeFilter, onSelectFilter }) {
         {/* Bento Grid: Categories & Glass Chips */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
           {TechnicalArsenal.map((group, groupIdx) => (
-            <div 
+            <div
               key={group.category}
               className="glass-panel p-6 sm:p-8 border-white/15 hover:border-white/25 transition-all duration-300 flex flex-col justify-between shadow-[0_10px_35px_rgba(0,0,0,0.6)]"
               style={{ animationDelay: `${groupIdx * 150}ms` }}
@@ -85,18 +85,17 @@ export default function SkillsSection({ activeFilter, onSelectFilter }) {
                           onClick={() => onSelectFilter(isFiltered ? null : skill.name)}
                           aria-describedby={descId}
                           aria-pressed={isFiltered}
-                          className={`glass-chip cursor-pointer flex items-center gap-2 text-left focus-visible:outline-2 focus-visible:outline-signal-yellow transform hover:-translate-y-1 focus-visible:-translate-y-1 transition-all duration-300 ${
-                            isFiltered
+                          className={`glass-chip cursor-pointer flex items-center gap-2 text-left focus-visible:outline-2 focus-visible:outline-signal-yellow transform hover:-translate-y-1 focus-visible:-translate-y-1 transition-all duration-300 ${isFiltered
                               ? 'bg-signal-yellow text-void font-bold border-signal-yellow shadow-[0_0_15px_rgba(246,230,66,0.5)]'
                               : hoveredSkill?.name === skill.name
-                              ? 'bg-white/15 border-signal-green text-white shadow-[0_0_15px_rgba(57,255,136,0.25)]'
-                              : 'text-fog hover:text-white'
-                          }`}
+                                ? 'bg-white/15 border-signal-green text-white shadow-[0_0_15px_rgba(57,255,136,0.25)]'
+                                : 'text-fog hover:text-white'
+                            }`}
                         >
                           <span className="w-1.5 h-1.5 rounded-full bg-signal-green"></span>
                           <span>{skill.name}</span>
                         </button>
-                        
+
                         {/* Visually hidden description node for screen readers */}
                         <span id={descId} className="sr-only">
                           {skill.context}. Proficiency level: {skill.level}.
@@ -146,7 +145,7 @@ export default function SkillsSection({ activeFilter, onSelectFilter }) {
             <div className="font-mono text-xs text-fog/80 flex flex-wrap items-center gap-x-6 gap-y-2 pt-6 border-t border-white/10">
               <span>PRIMARY FOCUS: <span className="text-white">{AcademiaDetails.focus}</span></span>
               <span>•</span>
-              <span>LOCATION: <span className="text-white">Athens, Greece</span></span>
+              <span>LOCATION: <span className="text-white">Ioannina/Thessaloniki, Greece</span></span>
             </div>
           </div>
         </div>

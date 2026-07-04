@@ -5,6 +5,7 @@ import HeroSection from './components/HeroSection';
 import ProjectsSection from './components/ProjectsSection';
 import SkillsSection from './components/SkillsSection';
 import ContactSection from './components/ContactSection';
+import ResumeSection from './components/ResumeSection';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -13,21 +14,31 @@ export default function App() {
 
   // Scroll spy to update active section in navbar
   useEffect(() => {
-    const sections = ['hero', 'archive', 'arsenal', 'terminal'];
+    const sections = ['hero', 'archive', 'arsenal', 'resume', 'terminal'];
     
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 250;
-      
+      const triggerPoint = window.innerHeight * 0.35;
+      let currentSection = null;
+      let minDistance = Infinity;
+
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
         if (element) {
-          const top = element.offsetTop;
-          const height = element.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(sectionId);
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= triggerPoint && rect.bottom > triggerPoint) {
+            currentSection = sectionId;
             break;
           }
+          const distance = Math.min(Math.abs(rect.top - triggerPoint), Math.abs(rect.bottom - triggerPoint));
+          if (distance < minDistance) {
+            minDistance = distance;
+            currentSection = sectionId;
+          }
         }
+      }
+
+      if (currentSection) {
+        setActiveSection(currentSection);
       }
     };
 
@@ -68,6 +79,7 @@ export default function App() {
         <HeroSection activeFilter={activeFilter} onSelectFilter={handleSelectFilter} />
         <ProjectsSection activeFilter={activeFilter} onSelectFilter={handleSelectFilter} />
         <SkillsSection activeFilter={activeFilter} onSelectFilter={handleSelectFilter} />
+        <ResumeSection />
         <ContactSection />
       </main>
 

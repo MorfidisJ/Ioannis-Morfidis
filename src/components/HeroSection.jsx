@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, Sparkles, ArrowRight, Play, CheckCircle2 } from 'lucide-react';
+import { Terminal, Sparkles, ArrowRight, Play, CheckCircle2, FileDown } from 'lucide-react';
 import { Developer } from '../data/portfolioData';
 
 export default function HeroSection({ activeFilter, onSelectFilter }) {
@@ -79,6 +79,14 @@ export default function HeroSection({ activeFilter, onSelectFilter }) {
               >
                 <span>&gt; EXPLORE_ARCHIVE</span>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </a>
+
+              <a
+                href="#resume"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 text-white font-mono text-sm border border-white/10 hover:border-signal-yellow/50 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-signal-yellow group/cv"
+              >
+                <FileDown size={16} className="text-signal-yellow group-hover/cv:-translate-y-0.5 transition-transform" />
+                <span>DOSSIER_CV</span>
               </a>
 
               <a

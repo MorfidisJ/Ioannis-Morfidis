@@ -101,7 +101,7 @@ export default function ContactSection() {
         <div className="mb-12 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-signal-green/10 border border-signal-green/30 text-signal-green font-mono text-xs mb-4">
             <Terminal size={14} />
-            <span>SECTION 04 // SECURE COMMUNICATION CHANNEL</span>
+            <span>SECTION 05 // SECURE COMMUNICATION CHANNEL</span>
           </div>
           <h2 className="font-display text-4xl sm:text-6xl font-extrabold text-white tracking-tight mb-4">
             THE TERMINAL<span className="text-signal-green">.</span>

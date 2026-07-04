@@ -26,7 +26,7 @@ export const ArchiveProjects = [
     description: "An intelligent compatibility engine connecting university students with compatible roommates using multi-variable lifestyle and academic algorithms. Scaled to thousands of active students and featured in national media outlets.",
     stack: ["React", "Node.js", "Tailwind", "PostgreSQL"],
     metrics: "→ Featured in National Media",
-    year: "2025 – 2026",
+    year: "2024 – Present",
     link: "https://github.com/UniMatesLabs/unimates-mvp",
     liveUrl: "https://www.unimates.net",
     theme: "from-emerald-500/20 to-teal-900/40",
@@ -40,7 +40,7 @@ export const ArchiveProjects = [
     description: "A precision analytics platform designed for civil and structural engineers to calculate energy efficiency and load distribution across large-scale infrastructure projects. Features real-time grid modeling and interactive data telemetry.",
     stack: ["HTML","CSS","JavaScript"],
     metrics: "→ 40% Faster Load Calculations",
-    year: "2025",
+    year: "2026",
     link: "https://github.com/MorfidisJ/PANTELEOS.NRG",
     liveUrl: "https://panteleos-nrg.vercel.app",
     theme: "from-amber-500/20 to-orange-900/40",
@@ -54,8 +54,7 @@ export const ArchiveProjects = [
     description: "Architected the digital experience for the annual TEDx Mavili Square conference. Built a high-contrast red-and-black aesthetic with sub-second page loads, real-time speaker schedules, and seamless digital ticket verification for 10,000+ attendees.",
     stack: ["Wordpress", "HTML", "CSS", "JavaScript"],
     metrics: "→ 10k+ Concurrent Visitors",
-    year: "2024 – 2025",
-    link: "-",
+    year: "2025 – 2026",
     liveUrl: "https://tedxmavilisquare.com/",
     theme: "from-rose-600/20 to-red-950/40",
     accent: "#FF3366"
@@ -96,13 +95,13 @@ export const TechnicalArsenal = [
 ];
 
 export const AcademiaDetails = {
-  institution: "Department of Computer Science & Engineering",
+  institution: "Department of Computer Science & Engineering University of Ioannina",
   degree: "Integrated M.Sc. in Computer Engineering & Informatics",
   status: "Undergraduate / Honors Student",
   focus: "Distributed Systems & Advanced Algorithmic Design",
   highlights: [
     "Teaching Assistant for Object-Oriented Programming (Java)",
-    "Co-founder & Technical Lead of university entrepreneurship incubator",
+    "Co-founder & CPO of UniMates",
     "Active participant in ACM ICPC algorithm programming competitions",
     "Focus areas: Systems Architecture, Computer Networks, Database Systems"
   ]
@@ -114,3 +113,18 @@ export const TerminalSystemInfo = {
   uptime: "99.99% // ALL SYSTEMS OPTIMAL",
   prompt: "guest@morfidis-terminal:~$ "
 };
+
+export const ResumeData = {
+  filename: "Ioannis-Morfidis-Resume.pdf",
+  filesize: "127 KB",
+  filetype: "PDF/A (Portable Document Format)",
+  lastUpdated: "2026 // LATEST RELEASE",
+  summary: "Comprehensive academic, professional, and technical curriculum vitae detailing systems engineering, fullstack architectures, and competitive programming achievements.",
+  highlights: [
+    { label: "EDUCATION", value: "Integrated M.Sc. Computer Engineering & Informatics (University of Ioannina)" },
+    { label: "LEADERSHIP", value: "Co-Founder & CPO @ UniMates (National Media Feature)" },
+    { label: "EXPERIENCE", value: "2+ Years Architecting Scalable Full-Stack Systems & Microservices" },
+    { label: "ACADEMIA", value: "Teaching Assistant for Java Object-Oriented Programming" }
+  ]
+};
+
