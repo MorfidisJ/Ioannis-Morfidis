@@ -6,6 +6,7 @@ import ProjectsSection from './components/ProjectsSection';
 import SkillsSection from './components/SkillsSection';
 import ContactSection from './components/ContactSection';
 import ResumeSection from './components/ResumeSection';
+import ScheduleSection from './components/ScheduleSection';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -14,7 +15,7 @@ export default function App() {
 
   // Scroll spy to update active section in navbar
   useEffect(() => {
-    const sections = ['hero', 'archive', 'arsenal', 'resume', 'terminal'];
+    const sections = ['hero', 'archive', 'arsenal', 'resume', 'schedule', 'terminal'];
     
     const handleScroll = () => {
       const triggerPoint = window.innerHeight * 0.35;
@@ -80,6 +81,7 @@ export default function App() {
         <ProjectsSection activeFilter={activeFilter} onSelectFilter={handleSelectFilter} />
         <SkillsSection activeFilter={activeFilter} onSelectFilter={handleSelectFilter} />
         <ResumeSection />
+        <ScheduleSection />
         <ContactSection />
       </main>
 

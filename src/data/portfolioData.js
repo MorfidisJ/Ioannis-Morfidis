@@ -128,3 +128,45 @@ export const ResumeData = {
   ]
 };
 
+export const CalendarScheduleData = {
+  status: "TEMPORAL_SYNC // AVAILABLE FOR CONSULTATION & COLLABORATION",
+  platform: "Cal.com",
+  profileUrl: "https://cal.com/ioannis-morfidis",
+  options: [
+    {
+      id: "quick-sync",
+      duration: "15 min",
+      badge: "15-MIN SYNC",
+      icon: "zap",
+      title: "Quick Introduction & Coffee Chat",
+      description: "Informal chat to connect, ask a quick technical question, or discuss initial collaboration opportunities.",
+      url: "https://cal.com/ioannis-morfidis/15min",
+      accent: "#39FF88",
+      command: "cal --book 15min"
+    },
+    {
+      id: "tech-consult",
+      duration: "30 min",
+      badge: "30-MIN CONSULTATION",
+      icon: "cpu",
+      title: "Technical Scoping & Architecture Review",
+      description: "Deep dive into system requirements, fullstack engineering scoping, or formal recruiting & technical screening.",
+      url: "https://cal.com/ioannis-morfidis/30min",
+      accent: "#F6E642",
+      command: "cal --book 30min"
+    },
+    {
+      id: "deep-dive",
+      duration: "45 min",
+      badge: "45-MIN DEEP DIVE",
+      icon: "rocket",
+      title: "Systems Strategy",
+      description: "Comprehensive session for startup partnerships, distributed architectures, algorithm design, or extensive project planning.",
+      url: "https://cal.com/ioannis-morfidis/45min",
+      accent: "#39FF88",
+      command: "cal --book 45min"
+    }
+  ]
+};
+
+
