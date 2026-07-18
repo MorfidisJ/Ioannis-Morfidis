@@ -27,7 +27,7 @@
 
 ## ⚡ Overview & Design Philosophy
 
-**Morfidis.OS v2.4.0** is a state-of-the-art personal portfolio web application built with **React 19** and **Vite 8**, showcasing the work of **Ioannis Morfidis**—Systems Architect, Software Engineer, and Co-Founder/CPO at [UniMates](https://unimates.gr).
+**Morfidis.OS v2.4.0** is a state-of-the-art personal portfolio web application built with **React 19** and **Vite 8**, showcasing the work of **Ioannis Morfidis**—Systems Architect, Software Engineer, and Co-Founder/CPO at [UniMates](https://unimates.net).
 
 The application is unified under the **"Terminal Glass"** design system: a cyberpunk-inspired, disciplined design language that combines high-performance liquid glassmorphism (`backdrop-blur-xl`), strict color token governance, interactive command line interfaces, and rigorous **WCAG 2.1 Level AA accessibility compliance**.
 
@@ -168,7 +168,7 @@ d:\Ioannis-Morfidis\
 - **GitHub**: [@MorfidisJ](https://github.com/MorfidisJ)
 - **LinkedIn**: [in/ioannis-morfidis](https://www.linkedin.com/in/ioannis-morfidis/)
 - **Twitter / X**: [@MorfidisJ](https://twitter.com/MorfidisJ)
-- **Email**: [morfidis.ioannis03@gmail.com](mailto:morfidis.ioannis03@gmail.com)
+- **Email**: [morfidis.ioannis03@gmail.com](mailto:morfidisioannis@gmail.com)
 
 <div align="center">
   <br />
