@@ -8,14 +8,16 @@ import ContactSection from './components/ContactSection';
 import ResumeSection from './components/ResumeSection';
 import ScheduleSection from './components/ScheduleSection';
 import Footer from './components/Footer';
+import ErrorBoundary from './components/ErrorBoundary';
+import { SECTION_IDS, SECTION_LIST } from './constants/sectionIds';
 
 export default function App() {
-  const [activeSection, setActiveSection] = useState('hero');
+  const [activeSection, setActiveSection] = useState(SECTION_IDS.HERO);
   const [activeFilter, setActiveFilter] = useState(null);
 
   // Scroll spy to update active section in navbar
   useEffect(() => {
-    const sections = ['hero', 'archive', 'arsenal', 'resume', 'schedule', 'terminal'];
+    const sections = SECTION_LIST;
     
     const handleScroll = () => {
       const triggerPoint = window.innerHeight * 0.35;
@@ -60,7 +62,7 @@ export default function App() {
     setActiveFilter(filterToken);
     // If selecting a filter from hero, automatically scroll to Archive smoothly
     if (filterToken) {
-      const archiveEl = document.getElementById('archive');
+      const archiveEl = document.getElementById(SECTION_IDS.ARCHIVE);
       if (archiveEl) {
         archiveEl.scrollIntoView({ behavior: 'smooth' });
       }
@@ -77,12 +79,14 @@ export default function App() {
 
       {/* Main Content Sections */}
       <main className="flex-1 w-full">
-        <HeroSection activeFilter={activeFilter} onSelectFilter={handleSelectFilter} />
-        <ProjectsSection activeFilter={activeFilter} onSelectFilter={handleSelectFilter} />
-        <SkillsSection activeFilter={activeFilter} onSelectFilter={handleSelectFilter} />
-        <ResumeSection />
-        <ScheduleSection />
-        <ContactSection />
+        <ErrorBoundary>
+          <HeroSection activeFilter={activeFilter} onSelectFilter={handleSelectFilter} />
+          <ProjectsSection activeFilter={activeFilter} onSelectFilter={handleSelectFilter} />
+          <SkillsSection activeFilter={activeFilter} onSelectFilter={handleSelectFilter} />
+          <ResumeSection />
+          <ScheduleSection />
+          <ContactSection />
+        </ErrorBoundary>
       </main>
 
       {/* Terminal Sign-off Footer */}

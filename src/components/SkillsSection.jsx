@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Terminal, Award, BookOpen, Code2, Cpu, Wrench, Sparkles, CheckCircle } from 'lucide-react';
+import { Award, BookOpen, Code2, Cpu, Wrench, Sparkles, CheckCircle } from 'lucide-react';
 import { TechnicalArsenal, AcademiaDetails } from '../data/portfolioData';
+import { SECTION_IDS } from '../constants/sectionIds';
 
 export default function SkillsSection({ activeFilter, onSelectFilter }) {
   const [hoveredSkill, setHoveredSkill] = useState(null);
@@ -12,7 +13,7 @@ export default function SkillsSection({ activeFilter, onSelectFilter }) {
   };
 
   return (
-    <section id="arsenal" className="py-24 relative min-h-screen">
+    <section id={SECTION_IDS.ARSENAL} className="py-24 relative min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Title */}
@@ -38,7 +39,7 @@ export default function SkillsSection({ activeFilter, onSelectFilter }) {
               <Sparkles size={16} />
             </span>
             <div>
-              <span className="text-fog/70 block text-[11px] uppercase tracking-wider">LIVE TELEMETRY CONTEXT</span>
+              <span className="text-panel-text/70 block text-[11px] uppercase tracking-wider">LIVE TELEMETRY CONTEXT</span>
               <span className="text-white font-semibold">
                 {hoveredSkill ? hoveredSkill.context : "> HOVER OR FOCUS A SKILL CHIP TO READ FIELD EXPERIENCE..."}
               </span>
@@ -66,7 +67,7 @@ export default function SkillsSection({ activeFilter, onSelectFilter }) {
                     {getCategoryIcon(group.category)}
                     <h3 className="font-display text-lg font-bold text-white">{group.category}</h3>
                   </div>
-                  <span className="text-xs text-fog/60">[{group.skills.length} TOKENS]</span>
+                  <span className="text-xs text-panel-text/70">[{group.skills.length} TOKENS]</span>
                 </div>
 
                 {/* Chips List (semantic ul > li with keyboard focus and aria-describedby) */}
@@ -89,7 +90,7 @@ export default function SkillsSection({ activeFilter, onSelectFilter }) {
                               ? 'bg-signal-yellow text-void font-bold border-signal-yellow shadow-[0_0_15px_rgba(246,230,66,0.5)]'
                               : hoveredSkill?.name === skill.name
                                 ? 'bg-white/15 border-signal-green text-white shadow-[0_0_15px_rgba(57,255,136,0.25)]'
-                                : 'text-fog hover:text-white'
+                                : 'text-panel-text hover:text-white'
                             }`}
                         >
                           <span className="w-1.5 h-1.5 rounded-full bg-signal-green"></span>
@@ -106,7 +107,7 @@ export default function SkillsSection({ activeFilter, onSelectFilter }) {
                 </ul>
               </div>
 
-              <div className="mt-8 pt-4 border-t border-white/10 font-mono text-[11px] text-fog/60 flex items-center justify-between">
+              <div className="mt-8 pt-4 border-t border-white/10 font-mono text-[11px] text-panel-text/60 flex items-center justify-between">
                 <span>STATUS: ACTIVE</span>
                 <span className="text-signal-green">VERIFIED</span>
               </div>
@@ -135,14 +136,14 @@ export default function SkillsSection({ activeFilter, onSelectFilter }) {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               {AcademiaDetails.highlights.map((highlight, idx) => (
-                <div key={idx} className="flex items-start gap-3 p-3.5 rounded-xl bg-white/[0.03] border border-white/10 font-sans text-sm text-fog">
+                <div key={idx} className="flex items-start gap-3 p-3.5 rounded-xl bg-white/[0.03] border border-white/10 font-sans text-sm text-panel-text">
                   <CheckCircle size={16} className="text-signal-green mt-0.5 shrink-0" />
                   <span>{highlight}</span>
                 </div>
               ))}
             </div>
 
-            <div className="font-mono text-xs text-fog/80 flex flex-wrap items-center gap-x-6 gap-y-2 pt-6 border-t border-white/10">
+            <div className="font-mono text-xs text-panel-text/80 flex flex-wrap items-center gap-x-6 gap-y-2 pt-6 border-t border-white/10">
               <span>PRIMARY FOCUS: <span className="text-white">{AcademiaDetails.focus}</span></span>
               <span>•</span>
               <span>LOCATION: <span className="text-white">Ioannina/Thessaloniki, Greece</span></span>

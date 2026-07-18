@@ -31,11 +31,15 @@
 
 @layer components {
   .glass-panel {
-    @apply bg-glass backdrop-blur-xl border border-glass-border rounded-2xl shadow-glass;
+    @apply bg-glass text-panel-text backdrop-blur-xl border border-glass-border rounded-2xl shadow-glass;
   }
   
   .glass-chip {
-    @apply bg-white/[0.04] backdrop-blur-md border border-white/[0.08] rounded-xl px-4 py-2.5 text-sm font-mono transition-all duration-300 ease-out hover:bg-white/[0.08] hover:border-white/[0.18];
+    @apply bg-white/[0.04] text-panel-text backdrop-blur-md border border-white/[0.08] rounded-xl px-4 py-2.5 text-sm font-mono transition-all duration-300 ease-out hover:bg-white/[0.08] hover:border-white/[0.18];
+  }
+
+  .font-display {
+    text-wrap: balance;
   }
 
   .terminal-text {

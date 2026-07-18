@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Terminal, Menu, X, ShieldCheck } from 'lucide-react';
 import { TerminalSystemInfo } from '../data/portfolioData';
+import { SECTION_IDS } from '../constants/sectionIds';
 
 export default function Navbar({ activeSection, onNavigate }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const drawerRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,13 +16,50 @@ export default function Navbar({ activeSection, onNavigate }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setMobileMenuOpen(false);
+        return;
+      }
+      if (e.key === 'Tab' && drawerRef.current) {
+        const focusableElements = drawerRef.current.querySelectorAll(
+          'a[href], button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
+        );
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement?.focus();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement?.focus();
+          }
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    // Focus first element on open
+    const firstBtn = drawerRef.current?.querySelector('a[href], button');
+    firstBtn?.focus();
+
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [mobileMenuOpen]);
+
   const navItems = [
-    { id: 'hero', label: '01 // HERO', href: '#hero' },
-    { id: 'archive', label: '02 // ARCHIVE', href: '#archive' },
-    { id: 'arsenal', label: '03 // ARSENAL', href: '#arsenal' },
-    { id: 'resume', label: '04 // DOSSIER', href: '#resume' },
-    { id: 'schedule', label: '05 // SCHEDULE', href: '#schedule' },
-    { id: 'terminal', label: '06 // TERMINAL', href: '#terminal' }
+    { id: SECTION_IDS.HERO, label: '01 // HERO', href: `#${SECTION_IDS.HERO}` },
+    { id: SECTION_IDS.ARCHIVE, label: '02 // ARCHIVE', href: `#${SECTION_IDS.ARCHIVE}` },
+    { id: SECTION_IDS.ARSENAL, label: '03 // ARSENAL', href: `#${SECTION_IDS.ARSENAL}` },
+    { id: SECTION_IDS.RESUME, label: '04 // DOSSIER', href: `#${SECTION_IDS.RESUME}` },
+    { id: SECTION_IDS.SCHEDULE, label: '05 // SCHEDULE', href: `#${SECTION_IDS.SCHEDULE}` },
+    { id: SECTION_IDS.TERMINAL, label: '06 // TERMINAL', href: `#${SECTION_IDS.TERMINAL}` }
   ];
 
   const handleLinkClick = (e, href, id) => {
@@ -48,8 +87,8 @@ export default function Navbar({ activeSection, onNavigate }) {
         <nav className="flex items-center justify-between" aria-label="Main Navigation">
           {/* Logo / Terminal status */}
           <a
-            href="#hero"
-            onClick={(e) => handleLinkClick(e, '#hero', 'hero')}
+            href={`#${SECTION_IDS.HERO}`}
+            onClick={(e) => handleLinkClick(e, `#${SECTION_IDS.HERO}`, SECTION_IDS.HERO)}
             className="flex items-center gap-2.5 font-mono text-sm tracking-tighter text-white hover:text-signal-yellow transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-signal-yellow rounded-lg px-2 py-1 -ml-2 group"
             aria-label="Ioannis Morfidis Home"
           >
@@ -109,7 +148,13 @@ export default function Navbar({ activeSection, onNavigate }) {
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-void/95 backdrop-blur-2xl border-b border-glass-border px-4 pt-4 pb-6 mt-3 shadow-glass animate-fade-in">
+        <div 
+          ref={drawerRef}
+          className="md:hidden bg-void/95 backdrop-blur-2xl border-b border-glass-border px-4 pt-4 pb-6 mt-3 shadow-glass animate-fade-in"
+          role="dialog"
+          aria-label="Mobile Navigation Menu"
+          aria-modal="true"
+        >
           <div className="flex flex-col gap-2">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;

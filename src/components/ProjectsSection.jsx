@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { ExternalLink, Terminal, ArrowUpRight, Check, Filter } from 'lucide-react';
+import React from 'react';
+import { ExternalLink, ArrowUpRight, Filter } from 'lucide-react';
 import { GithubIcon } from './SocialIcons';
 import { ArchiveProjects } from '../data/portfolioData';
+import { SECTION_IDS } from '../constants/sectionIds';
 
 export default function ProjectsSection({ activeFilter, onSelectFilter }) {
-  const [activeTab, setActiveTab] = useState('all');
 
   const filteredProjects = activeFilter
     ? ArchiveProjects.filter(project => 
@@ -13,7 +13,7 @@ export default function ProjectsSection({ activeFilter, onSelectFilter }) {
     : ArchiveProjects;
 
   return (
-    <section id="archive" className="py-24 relative min-h-screen">
+    <section id={SECTION_IDS.ARCHIVE} className="py-24 relative min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Title Header */}
@@ -48,7 +48,7 @@ export default function ProjectsSection({ activeFilter, onSelectFilter }) {
         </div>
 
         {/* Layout: Main vertical scroll + Slim Side Project-Index Rail */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-start relative">
           
           {/* Slim Project-Index Rail (Scroll-Spy style jump links) */}
           <div className="hidden lg:block lg:col-span-3 sticky top-32">
@@ -102,7 +102,7 @@ export default function ProjectsSection({ activeFilter, onSelectFilter }) {
                 </button>
               </div>
             ) : (
-              filteredProjects.map((project, idx) => {
+              filteredProjects.map((project) => {
                 return (
                   <article
                     key={project.id}
@@ -113,10 +113,10 @@ export default function ProjectsSection({ activeFilter, onSelectFilter }) {
                   >
                     {/* Background Full-Bleed Simulated Image / Cinematic Container */}
                     {/* Starts muted (grayscale/saturate-50) and bursts to full saturation and brightness on hover/focus */}
-                    <div className="relative min-h-[520px] sm:min-h-[580px] w-full p-6 sm:p-10 flex flex-col justify-between overflow-hidden">
+                    <div className="relative min-h-[480px] lg:min-h-[560px] w-full p-6 sm:p-10 flex flex-col justify-between overflow-hidden">
                       
                       {/* Atmospheric background gradient theme */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${project.theme} opacity-30 sm:grayscale sm:saturate-50 sm:opacity-40 sm:contrast-75 group-hover:grayscale-0 group-hover:saturate-100 group-hover:opacity-100 group-hover:contrast-100 group-focus:grayscale-0 group-focus:saturate-100 group-focus:opacity-100 transition-all duration-700 ease-out`} />
+                      <div className={`absolute inset-0 bg-gradient-to-br ${project.theme} opacity-30 sm:grayscale sm:saturate-50 sm:opacity-40 sm:contrast-75 group-hover:grayscale-0 group-hover:saturate-100 group-hover:opacity-100 group-hover:contrast-100 group-focus:grayscale-0 group-focus:saturate-100 group-focus:opacity-100 transition-all duration-500 ease-out will-change-[filter,opacity]`} />
                       
                       {/* Cyberpunk grid overlay */}
                       <div 
@@ -158,7 +158,7 @@ export default function ProjectsSection({ activeFilter, onSelectFilter }) {
                           </p>
 
                           {/* Description */}
-                          <p className="font-sans text-sm sm:text-base text-fog leading-relaxed mb-6">
+                          <p className="font-sans text-sm sm:text-base text-panel-text leading-relaxed mb-6">
                             {project.description}
                           </p>
 
@@ -174,11 +174,18 @@ export default function ProjectsSection({ activeFilter, onSelectFilter }) {
                                     e.stopPropagation();
                                     onSelectFilter(isFiltered ? null : tech);
                                   }}
+                                  onKeyDown={(e) => {
+                                    if (e.key === 'Enter' || e.key === ' ') {
+                                      e.preventDefault();
+                                      e.stopPropagation();
+                                      onSelectFilter(isFiltered ? null : tech);
+                                    }
+                                  }}
                                   aria-label={`Filter by ${tech}`}
                                   className={`text-xs font-mono px-2.5 py-1 rounded-lg transition-all focus-visible:outline-2 focus-visible:outline-signal-yellow ${
                                     isFiltered
                                       ? 'bg-signal-yellow text-void font-bold'
-                                      : 'bg-white/5 hover:bg-white/15 text-fog hover:text-white border border-white/10'
+                                      : 'bg-white/5 hover:bg-white/15 text-panel-text hover:text-white border border-white/10'
                                   }`}
                                 >
                                   {tech}

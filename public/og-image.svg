@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" style="background:#050505;font-family:'JetBrains Mono',monospace,sans-serif;">
+  <defs>
+    <!-- Background Radial Gradients -->
+    <radialGradient id="greenGlow" cx="15%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="#39FF88" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="yellowGlow" cx="85%" cy="80%" r="50%">
+      <stop offset="0%" stop-color="#F6E642" stop-opacity="0.14" />
+      <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="panelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.85" />
+    </linearGradient>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0d0d0d" stop-opacity="0.9" />
+    </linearGradient>
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.04" />
+    </pattern>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="25" stdDeviation="35" flood-color="#000000" flood-opacity="0.9" />
+    </filter>
+  </defs>
+
+  <!-- Base Background -->
+  <rect width="1200" height="630" fill="#050505" />
+  <rect width="1200" height="630" fill="url(#greenGlow)" />
+  <rect width="1200" height="630" fill="url(#yellowGlow)" />
+  <rect width="1200" height="630" fill="url(#grid)" />
+
+  <!-- Main Terminal Glass Panel (Centered) -->
+  <g filter="url(#shadow)" transform="translate(90, 80)">
+    <!-- Panel Background -->
+    <rect width="1020" height="470" rx="20" fill="url(#panelGrad)" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.5" />
+    
+    <!-- Window Header Chrome -->
+    <path d="M 0 20 C 0 8.954 8.954 0 20 0 L 1000 0 C 1011.046 0 1020 8.954 1020 20 L 1020 52 L 0 52 Z" fill="url(#headerGrad)" />
+    <line x1="0" y1="52" x2="1020" y2="52" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1" />
+    
+    <!-- Window Traffic Light Buttons -->
+    <circle cx="28" cy="26" r="6.5" fill="#F43F5E" fill-opacity="0.85" />
+    <circle cx="48" cy="26" r="6.5" fill="#F59E0B" fill-opacity="0.85" />
+    <circle cx="68" cy="26" r="6.5" fill="#10B981" fill-opacity="0.85" />
+    
+    <!-- Header Title -->
+    <text x="96" y="31" fill="#9AA0A6" font-size="14" font-weight="500" letter-spacing="0.5">bash — ioannis_morfidis_os.sh — 1200x630</text>
+    
+    <!-- Header Status Badge -->
+    <g transform="translate(830, 16)">
+      <rect width="166" height="22" rx="6" fill="#39FF88" fill-opacity="0.1" stroke="#39FF88" stroke-opacity="0.35" stroke-width="1" />
+      <circle cx="16" cy="11" r="3.5" fill="#39FF88" />
+      <text x="30" y="15" fill="#39FF88" font-size="11" font-weight="700" letter-spacing="1">SYSTEMS ACTIVE</text>
+    </g>
+
+    <!-- Terminal Content Area -->
+    <g transform="translate(60, 110)">
+      <!-- System Prompt -->
+      <g transform="translate(0, 0)">
+        <text x="0" y="20" fill="#39FF88" font-size="16" font-weight="700">&gt; MORFIDIS_OS v2.4.0</text>
+        <text x="215" y="20" fill="#D0D5DD" font-size="16" font-weight="400">// INITIALIZING LIQUID GLASS INTERFACE...</text>
+        <text x="660" y="20" fill="#39FF88" font-size="16" font-weight="700">[ 200 OK ]</text>
+      </g>
+
+      <!-- Main Display Name -->
+      <g transform="translate(0, 95)" style="font-family:'Outfit',sans-serif;">
+        <text x="0" y="0" fill="#FFFFFF" font-size="64" font-weight="900" letter-spacing="-1.5">IOANNIS MORFIDIS</text>
+        <circle cx="615" cy="-14" r="7" fill="#F6E642" />
+      </g>
+
+      <!-- Role Subtitle Chip -->
+      <g transform="translate(0, 135)">
+        <rect width="470" height="38" rx="8" fill="#39FF88" fill-opacity="0.12" stroke="#39FF88" stroke-opacity="0.4" stroke-width="1" />
+        <text x="20" y="24" fill="#39FF88" font-size="16" font-weight="800" letter-spacing="1.5">&gt; SYSTEMS &amp; SOFTWARE ENGINEER</text>
+      </g>
+
+      <!-- Key Credentials Bento Row -->
+      <g transform="translate(0, 205)">
+        <!-- Card 1 -->
+        <g transform="translate(0, 0)">
+          <rect width="280" height="95" rx="12" fill="#FFFFFF" fill-opacity="0.04" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="1" />
+          <text x="20" y="32" fill="#F6E642" font-size="13" font-weight="700" letter-spacing="0.5">// CURRENT ROLE</text>
+          <text x="20" y="60" fill="#FFFFFF" font-size="18" font-weight="700" style="font-family:'Outfit',sans-serif;">Co-Founder &amp; CPO</text>
+          <text x="20" y="80" fill="#D0D5DD" font-size="13" font-weight="500">UniMates • EdTech Platform</text>
+        </g>
+        <!-- Card 2 -->
+        <g transform="translate(305, 0)">
+          <rect width="280" height="95" rx="12" fill="#FFFFFF" fill-opacity="0.04" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="1" />
+          <text x="20" y="32" fill="#39FF88" font-size="13" font-weight="700" letter-spacing="0.5">// SPECIALIZATION</text>
+          <text x="20" y="60" fill="#FFFFFF" font-size="18" font-weight="700" style="font-family:'Outfit',sans-serif;">Distributed Systems</text>
+          <text x="20" y="80" fill="#D0D5DD" font-size="13" font-weight="500">React 19 • High-Performance</text>
+        </g>
+        <!-- Card 3 -->
+        <g transform="translate(610, 0)">
+          <rect width="280" height="95" rx="12" fill="#FFFFFF" fill-opacity="0.04" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="1" />
+          <text x="20" y="32" fill="#F6E642" font-size="13" font-weight="700" letter-spacing="0.5">// ACADEMIC STATUS</text>
+          <text x="20" y="60" fill="#FFFFFF" font-size="18" font-weight="700" style="font-family:'Outfit',sans-serif;">CSE Undergraduate</text>
+          <text x="20" y="80" fill="#D0D5DD" font-size="13" font-weight="500">University of Ioannina</text>
+        </g>
+      </g>
+
+      <!-- Bottom CLI Prompt -->
+      <g transform="translate(0, 335)">
+        <text x="0" y="0" fill="#39FF88" font-size="14" font-weight="700">guest@morfidis-terminal:~$</text>
+        <text x="235" y="0" fill="#D0D5DD" font-size="14" font-weight="400">curl -X GET https://ioannis-morfidis.vercel.app/dossier.json</text>
+        <rect x="740" y="-12" width="10" height="15" fill="#39FF88" />
+      </g>
+    </g>
+  </g>
+</svg>
